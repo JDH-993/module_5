@@ -1,3 +1,6 @@
+import time as tm
+
+
 class User:
 	Us = []
 
@@ -98,22 +101,25 @@ class UrTube:
 			if args[0] == UrTube.videos[u][0]:
 				k = UrTube.videos[u]
 		if len(k) == 0:
-			return 
+			return
 		if k is not None:
 			if UrTube.current_user is None:
 				print("Войдите в аккаунт, чтобы смотреть видео")
-				return 
+				return
 			elif k[-1] is True and UrTube.current_user[-1] < 18:
 				print("Вам нет 18 лет, пожалуйста покиньте страницу")
 				return
 			elif k[2] == 0:
 				for p in range(1, k[-3] + 1):
+					tm.sleep(1)
 					print(p, end = " ")
 				print("Конец видео")
 				return
 			elif k[2] > 0:
-				for p in range(k[2], k[1]+1):
+				for p in range(k[2], k[1] + 1):
+					tm.sleep(1)
 					print(p, end = " ")
+				tm.sleep(1)
 				print("Конец видео")
 				return
 		return
